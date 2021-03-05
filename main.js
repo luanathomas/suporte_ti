@@ -318,8 +318,8 @@ function buscaSelect3(e) {
         // aqui eu percorro todos os problemas e crio os OPTIONS
         json2.problemas[j_index].problemas2.forEach(function(problemas2) {
             var problem_opts = document.createElement('option');
-            problem_opts.setAttribute('value', problemas2)
-            problem_opts.innerHTML = problemas2;
+            problem_opts.setAttribute('value', problemas2.valor)
+            problem_opts.innerHTML = problemas2.nome;
             select3.appendChild(problem_opts);
         });
     } else {
