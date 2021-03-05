@@ -1,268 +1,328 @@
-let btnCalcular = document.querySelector('.calcular');
-let btnDark = document.querySelector('#dark');
-let btnLight = document.querySelector('#light');
-let formulario = document.querySelector("form");
+// ESTE SERIA O CONTEÚDO DO .js
+var json1 = {
+    "equipamentos": [{
+            "nome": "Notebook",
+            "valor": 1,
+            "problemas": [{
+                    "nome": "Selecione:",
+                    "valor": 0
+                },
+                {
+                    "nome": "O notebook não liga",
+                    "valor": 1
+                },
+                {
+                    "nome": "A internet do notebook não funciona",
+                    "valor": 2
+                },
+                {
+                    "nome": "Áudio e câmera não funcionam",
+                    "valor": 3
+                }
+            ]
+        },
+        {
+            "nome": "Computador",
+            "valor": 2,
+            "problemas": [{
+                    "nome": "Selecione:",
+                    "valor": 0
+                },
+                {
 
-let janeiro = [];
-let fevereiro = [20, 21, 22, 25, 26, 27, 28];
-let marco = [1, 6, 7, 8, 11, 12, 13, 14, 15, 18, 19, 20, 21, 22, 25, 26, 27, 28, 29];
-let abril = [1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 15, 16, 17, 18, 22, 23, 24, 25, 26, 29, 30];
-let maio = [2, 3, 6, 7, 8, 9, 10, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 24, 27, 28, 29, 31];
-let junho = [3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 17, 18, 19, 21, 24, 25, 26, 27, 28];
-let julho = [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 15, 16, 17, 29, 30, 31];
-let agosto = [1, 2, 5, 6, 7, 8, 9, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 26, 27, 28, 29, 30];
-let setembro = [2, 3, 4, 5, 6, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 23, 24, 25, 26, 27, 30];
-let outubro = [1, 2, 3, 4, 7, 8, 9, 10, 11, 14, 15, 16, 17, 18, 21, 22, 23, 24, 25, 26, 28, 29, 30, 31];
-let novembro = [1, 4, 5, 6, 7, 8, 11, 12, 13, 14, 18, 19, 20, 21, 22, 25, 26, 27, 28, 29];
-let dezembro = [2, 3, 4, 5, 6, 9, 10];
-let meses = ['Janeiro', 'Fevereiro', 'Marco', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
-let quant = [0, 7, 19, 22, 22, 20, 16, 22, 21, 24, 20, 7];
+                    "nome": "Problemas com o mouse ou teclado",
+                    "valor": 1
+                },
+                {
+                    "nome": "A internet do computador não funciona",
+                    "valor": 2
+                },
+                {
+                    "nome": "A tela não liga",
+                    "valor": 3
+                }
+            ]
+        },
+        {
+            "nome": "Impressora",
+            "valor": 3,
+            "problemas": [{
+                    "nome": "Selecione:",
+                    "valor": 0
+                },
+                {
+                    "nome": "Impressão fraca",
+                    "valor": 1
+                },
+                {
+                    "nome": "Não consigo imprimir",
+                    "valor": 2
+                },
+                {
+                    "nome": "O scanner não funciona",
+                    "valor": 3
+                }
+            ]
+        }
+    ]
+};
 
-btnDark.addEventListener("click", function(e) {
-    formulario.style.backgroundColor = "rgb(35, 35, 35)";
-    formulario.style.color = "white";
+var json2 = {
+    "problemas": [{
+            "equipamento": "Notebook",
+            "nome": "O notebook não liga",
+            "valor": 1,
+            "problemas2": [{
+                    "nome": "Selecione:",
+                    "valor": 0
+                },
+                {
+                    "nome": "Problema com o cabo",
+                    "valor": 1
+                },
+                {
+                    "nome": "Está com cheiro de queimado",
+                    "valor": 2
+                },
+                {
+                    "nome": "Estava ligado e desligou sozinho",
+                    "valor": 3
+                }
+            ]
+        },
+        {
+            "equipamento": "Notebook",
+            "nome": "A internet do notebook não funciona",
+            "valor": 2,
+            "problemas2": [{
+                    "nome": "Selecione:",
+                    "valor": 0
+                },
+                {
+                    "nome": "bbb",
+                    "valor": 1
+                },
+                {
+                    "nome": "bbb",
+                    "valor": 2
+                },
+                {
+                    "nome": "bbb",
+                    "valor": 3
+                }
 
-});
-btnLight.addEventListener('click', function(e) {
-    formulario.style.backgroundColor = "white";
-    formulario.style.color = "black";
-})
+            ]
+        },
+        {
+            "equipamento": "Notebook",
+            "nome": "Áudio e câmera não funcionam",
+            "valor": 3,
+            "problemas2": [{
+                    "nome": "Selecione:",
+                    "valor": 0
+                },
+                {
+                    "nome": "ccc",
+                    "valor": 1
+                },
+                {
+                    "nome": "ccc",
+                    "valor": 2
+                },
+                {
+                    "nome": "ccc",
+                    "valor": 3
+                }
+            ]
+        },
+        {
+            "equipamento": "Computador",
+            "nome": "Problemas com o mouse ou teclado",
+            "valor": 1,
+            "problemas2": [{
+                    "nome": "Selecione:",
+                    "valor": 0
+                },
+                {
+                    "nome": "ddd",
+                    "valor": 1
+                },
+                {
+                    "nome": "ddd",
+                    "valor": 2
+                },
+                {
+                    "nome": "ddd",
+                    "valor": 3
+                }
+            ]
+        },
+        {
+            "equipamento": "Computador",
+            "nome": "A internet do computador não funciona",
+            "valor": 2,
+            "problemas2": [{
+                    "nome": "Selecione:",
+                    "valor": 0
+                },
+                {
+                    "nome": "eee",
+                    "valor": 1
+                },
+                {
+                    "nome": "eee",
+                    "valor": 2
+                },
+                {
+                    "nome": "eee",
+                    "valor": 3
+                }
+            ]
+        },
+        {
+            "equipamento": "Computador",
+            "nome": "A tela não liga",
+            "valor": 3,
+            "problemas2": [{
+                    "nome": "Selecione:",
+                    "valor": 0
+                },
+                {
+                    "nome": "fff",
+                    "valor": 1
+                },
+                {
+                    "nome": "fff",
+                    "valor": 2
+                },
+                {
+                    "nome": "fff",
+                    "valor": 3
+                }
+            ]
+        },
+        {
+            "equipamento": "Impressora",
+            "nome": "Impressão fraca",
+            "valor": 1,
+            "problemas2": [{
+                    "nome": "Selecione:",
+                    "valor": 0
+                },
+                {
+                    "nome": "ggg",
+                    "valor": 1
+                },
+                {
+                    "nome": "ggg",
+                    "valor": 2
+                },
+                {
+                    "nome": "ggg",
+                    "valor": 3
+                }
+            ]
+        },
+        {
+            "equipamento": "Impressora",
+            "nome": "Não consigo imprimir",
+            "valor": 2,
+            "problemas2": [{
+                    "nome": "Selecione:",
+                    "valor": 0
+                },
+                {
+                    "nome": "hhh",
+                    "valor": 1
+                },
+                {
+                    "nome": "hhh",
+                    "valor": 2
+                },
+                {
+                    "nome": "hhh",
+                    "valor": 3
+                }
+            ]
+        },
+        {
+            "equipamento": "Impressora",
+            "nome": "O scanner não funciona",
+            "valor": 3,
+            "problemas2": [{
+                    "nome": "Selecione:",
+                    "valor": 0
+                },
+                {
+                    "nome": "iii",
+                    "valor": 1
+                },
+                {
+                    "nome": "iii",
+                    "valor": 2
+                },
+                {
+                    "nome": "iii",
+                    "valor": 3
+                }
+            ]
+        }
+    ]
+};
+// FIM DO .js
 
-let mes = document.querySelector('#mes');
-let dia = document.querySelector('#dia');
-let nome = document.querySelector('#nome');
-let tema = document.querySelector('.radio');
-let form = document.getElementById("#container");
+function buscaSelect2(e) {
+    document.querySelector("#select2").innerHTML = '';
+    var select2 = document.querySelector("#select2");
 
+    var num_equipamentos = json1.equipamentos.length;
+    var j_index = -1;
 
-
-btnCalcular.addEventListener('click', function(e) {
-    e.preventDefault();
-
-    let a = 0
-
-    for (let index = 1; index < mes.value; index++) {
-        a += quant[index - 1];
+    // aqui eu pego o index do equipamento dentro do JSON
+    for (var x = 0; x < num_equipamentos; x++) {
+        if (json1.equipamentos[x].valor == e) {
+            j_index = x;
+        }
     }
 
-    let diaV = dia.value;
+    if (j_index != -1) {
 
-    if (mes.value == 1 || mes.value == 3 || mes.value == 5 || mes.value == 7 || mes.value == 8 || mes.value == 10 || mes.value == 12) {
-        if (dia.value > 31 || dia.value < 1) {
-            document.querySelector(".resultado").innerHTML = nome.value + ", esse dia não existe! Tente novamente.";
+        // aqui eu percorro todos os problemas e crio os OPTIONS
+        json1.equipamentos[j_index].problemas.forEach(function(problemas) {
+            var problem_opts = document.createElement('option');
+            problem_opts.setAttribute('value', problemas.valor)
+            problem_opts.innerHTML = problemas.nome;
+            select2.appendChild(problem_opts);
+        });
+    } else {
+        document.querySelector("#select2").innerHTML = '';
+    }
+}
 
-        } else if (mes.value == 1) {
-            document.querySelector(".resultado").innerHTML = nome.value + ", você está de férias! 😃";
+function buscaSelect3(e) {
+    document.querySelector("#select3").innerHTML = '';
+    var select3 = document.querySelector("#select3");
 
-        } else if (mes.value == 3) {
-            let b = 0;
-            for (let index = 0; index < marco.length; index++) {
-                if (dia.value == marco[index]) {
-                    a += 1 + index;
-                    var falta = 202 - a;
-                    b = 1
-                    break;
-                }
-            }
-            if (b == 1) {
-                document.querySelector(".resultado").innerHTML = nome.value + ", faltam " + falta + " dias para as férias 😕";
-            } else {
-                document.querySelector(".resultado").innerHTML = nome.value + ", hoje não tem aula 😃";
-            }
+    var num_problemas = json2.problemas.length;
+    var j_index = -1;
 
-        } else if (mes.value == 5) {
-            let b = 0;
-            for (let index = 0; index < maio.length; index++) {
-                if (dia.value == maio[index]) {
-                    a += 1 + index;
-                    var falta = 202 - a;
-                    b = 1;
-                    break;
-                }
-
-            }
-            if (b == 1) {
-                document.querySelector(".resultado").innerHTML = nome.value + ", faltam " + falta + " dias para as férias 😕";
-            } else {
-                document.querySelector(".resultado").innerHTML = nome.value + ", hoje não tem aula 😃";
-            }
-
-        } else if (mes.value == 7) {
-            let b = 0;
-            for (let index = 0; index < julho.length; index++) {
-                if (dia.value == julho[index]) {
-                    a += 1 + index;
-                    var falta = 202 - a;
-                    b = 1;
-                    break;
-                }
-
-            }
-            if (b == 1) {
-                document.querySelector(".resultado").innerHTML = nome.value + ", faltam " + falta + " dias para as férias 😕";
-            } else {
-                document.querySelector(".resultado").innerHTML = nome.value + ", hoje não tem aula 😃";
-            }
-
-        } else if (mes.value == 8) {
-            let b = 0;
-            for (let index = 0; index < agosto.length; index++) {
-                if (dia.value == agosto[index]) {
-                    a += 1 + index;
-                    var falta = 202 - a;
-                    b = 1;
-                    break;
-                }
-            }
-            if (b == 1) {
-                document.querySelector(".resultado").innerHTML = nome.value + ", faltam " + falta + " dias para as férias 😕";
-            } else {
-                document.querySelector(".resultado").innerHTML = nome.value + ", hoje não tem aula 😃";
-            }
-
-        } else if (mes.value == 10) {
-            let b = 0;
-            for (let index = 0; index < outubro.length; index++) {
-                if (dia.value == outubro[index]) {
-                    a += 1 + index;
-                    var falta = 202 - a;
-                    b = 1;
-                    break;
-                }
-            }
-            if (b == 1) {
-                document.querySelector(".resultado").innerHTML = nome.value + ", faltam " + falta + " dias para as férias 😕";
-            } else {
-                document.querySelector(".resultado").innerHTML = nome.value + ", hoje não tem aula 😃";
-            }
-
-        } else if (mes.value == 12 && dia.value > 10) {
-            document.querySelector(".resultado").innerHTML = nome.value + ", você está de férias! 😃";
-        } else if (mes.value == 12) {
-            let b = 0;
-            for (let index = 0; index < dezembro.length; index++) {
-                if (dia.value == dezembro[index]) {
-                    a += 1 + index;
-                    var falta = 200 - a;
-                    b = 1;
-                    break;
-                }
-            }
-            if (b == 1) {
-                document.querySelector(".resultado").innerHTML = nome.value + ", faltam " + falta + " dias para as férias 😕";
-            } else {
-                document.querySelector(".resultado").innerHTML = nome.value + ", hoje não tem aula 😃";
-            }
-
+    // aqui eu pego o index do problema dentro do JSON
+    for (var x = 0; x < num_problemas; x++) {
+        if (json2.problemas[x].nome == e) {
+            j_index = x;
         }
-
-    } else if (mes.value == 2) {
-        if (dia.value > 28 || dia.value < 1) {
-            document.querySelector(".resultado").innerHTML = nome.value + ", esse dia não existe! Tente novamente.";
-
-        } else if (dia.value < 20) {
-            document.querySelector(".resultado").innerHTML = nome.value + ", você está de férias! 😃";
-
-        } else if (mes.value == 2) {
-            alert('oi')
-            let b = 0;
-            for (let index = 0; index < fevereiro.length; index++) {
-                if (dia.value == fevereiro[index]) {
-                    a += 1 + index;
-                    var falta = 202 - a;
-                    b = 1
-                    break;
-                }
-            }
-            if (b == 1) {
-                document.querySelector(".resultado").innerHTML = nome.value + ", faltam " + falta + " dias para as férias 😕";
-            } else {
-                document.querySelector(".resultado").innerHTML = nome.value + ", hoje não tem aula 😃";
-            }
-        } else if (mes.value == 4 || mes.value == 6 || mes.value == 9 || mes.value == 11) {
-            if (dia.value > 30 || dia.value < 1) {
-                document.querySelector(".resultado").innerHTML = nome.value + ", esse dia não existe! Tente novamente.";
-            } else if (mes.value == 4) {
-                let b = 0;
-                for (let index = 0; index < abril.length; index++) {
-                    if (dia.value == abril[index]) {
-                        a += 1 + index;
-                        var falta = 202 - a;
-                        b = 1
-                        break;
-                    }
-                }
-                if (b == 1) {
-                    document.querySelector(".resultado").innerHTML = nome.value + ", faltam " + falta + " dias para as férias 😕";
-                } else {
-                    document.querySelector(".resultado").innerHTML = nome.value + ", hoje não tem aula 😃";
-                }
-            } else if (mes.value == 6) {
-                let b = 0;
-                for (let index = 0; index < junho.length; index++) {
-                    if (dia.value == junho[index]) {
-                        a += 1 + index;
-                        var falta = 202 - a;
-                        b = 1;
-                        break;
-                    }
-
-                }
-                if (b == 1) {
-                    document.querySelector(".resultado").innerHTML = nome.value + ", faltam " + falta + " dias para as férias 😕";
-                } else {
-                    document.querySelector(".resultado").innerHTML = nome.value + ", hoje não tem aula 😃";
-                }
-
-            } else if (mes.value == 9) {
-                let b = 0;
-                for (let index = 0; index < setembro.length; index++) {
-                    if (dia.value == setembro[index]) {
-                        a += 1 + index;
-                        var falta = 202 - a;
-                        b = 1;
-                        break;
-                    }
-                }
-                if (b == 1) {
-                    document.querySelector(".resultado").innerHTML = nome.value + ", faltam " + falta + " dias para as férias 😕";
-                } else {
-                    document.querySelector(".resultado").innerHTML = nome.value + ", hoje não tem aula 😃";
-                }
-
-            } else if (mes.value == 11) {
-                let b = 0;
-                for (let index = 0; index < novembro.length; index++) {
-
-                    if ((dia.value) == novembro[index]) {
-                        a += 1 + index;
-                        var falta = 202 - a;
-                        b = 1;
-                        break;
-                    }
-                }
-                if (b == 1) {
-                    document.querySelector(".resultado").innerHTML = nome.value + ", faltam " + falta + " dias para as férias 😕";
-                } else {
-                    document.querySelector(".resultado").innerHTML = nome.value + ", hoje não tem aula 😃";
-                }
-
-            }
-        }
-
     }
 
+    if (j_index != -1) {
 
-
-
-
-
-
-
-
-
-
-
-
-
-});
+        // aqui eu percorro todos os problemas e crio os OPTIONS
+        json2.problemas[j_index].problemas2.forEach(function(problemas2) {
+            var problem_opts = document.createElement('option');
+            problem_opts.setAttribute('value', problemas2)
+            problem_opts.innerHTML = problemas2;
+            select3.appendChild(problem_opts);
+        });
+    } else {
+        document.querySelector("#select3").innerHTML = '';
+    }
+}

@@ -1,10 +1,3 @@
-/* @font-face {
-    font-family: 'Segoe UI Regular';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Segoe UI Regular'), url('Segoe UI.woff') format('woff');
-} */
-
 @import url('https://fonts.googleapis.com/css?family=Handlee');
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 html,
@@ -39,12 +32,12 @@ form {
     margin: 0 auto;
     padding: 5px;
     background-color: white;
-    height: 500px;
-    width: 5fr;
+    height: 550px;
+    width: 6fr;
     border-radius: 18px;
     border-color: white;
-    grid-template-rows: 1fr 1fr 2fr 2fr 2fr 1fr 1fr 2fr 1fr 1fr;
-    grid-template-areas: "titulo" "descricao" "select" "input1" "input2" "button" "." "resultado" "tema" "footer";
+    grid-template-rows: 1fr 1fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 1fr 2fr 1fr 1fr;
+    grid-template-areas: "titulo" "descricao" "label1" "select1" "label2" "select2" "label3" "select3" "." "button" "resultado" "tema" "footer";
 }
 
 .titulo {
@@ -60,28 +53,52 @@ form {
     height: 50px;
 }
 
-.select {
-    grid-area: select;
+.label1 {
+    grid-area: label1;
     text-align: center;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
-.input1 {
-    grid-area: input1;
+.label2 {
+    grid-area: label2;
+    text-align: center;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    text-align: center;
 }
 
-.input2 {
-    grid-area: input2;
+.label3 {
+    grid-area: label3;
+    text-align: center;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+.select1 {
+    grid-area: select1;
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.select2 {
+    grid-area: select2;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.select3 {
+    grid-area: select3;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .botao {
@@ -101,26 +118,6 @@ form {
     font-style: bold;
     font-weight: normal;
     font-size: 17pt;
-}
-
-.radio {
-    grid-area: tema;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    font-family: 'Josefin Sans', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-}
-
-.dark {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-.light {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
 }
 
 .rodape {
@@ -179,7 +176,7 @@ button {
     padding: 4px;
 }
 
-radio {
+label {
     border-color: transparent;
     font-family: 'Josefin Sans', sans-serif;
     font-style: normal;
@@ -198,6 +195,7 @@ radio {
 
 h1,
 h3,
+h4,
 p {
     font-family: 'Josefin Sans', sans-serif;
     font-style: normal;
