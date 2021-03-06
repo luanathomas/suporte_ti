@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 06-Mar-2021 às 19:41
+-- Tempo de geração: 06-Mar-2021 às 21:25
 -- Versão do servidor: 10.4.17-MariaDB
 -- versão do PHP: 8.0.2
 
@@ -24,13 +24,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `equipamentos`
+-- Estrutura da tabela `caso`
 --
 
-CREATE TABLE `equipamentos` (
-  `ID` int(11) NOT NULL,
-  `Valor` int(11) NOT NULL,
-  `Problema` varchar(150) DEFAULT NULL
+CREATE TABLE `caso` (
+  `ID_caso` int(11) NOT NULL,
+  `ID_equipamento` int(11) DEFAULT NULL,
+  `ID_problema_primario` int(11) DEFAULT NULL,
+  `ID_problema_secundario` int(11) DEFAULT NULL,
+  `ID_solucao` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `equipamento`
+--
+
+CREATE TABLE `equipamento` (
+  `ID_equipamento` int(11) NOT NULL,
+  `valor` int(11) DEFAULT NULL,
+  `nome` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -40,9 +54,9 @@ CREATE TABLE `equipamentos` (
 --
 
 CREATE TABLE `problema_primario` (
-  `ID` int(11) NOT NULL,
-  `Valor` int(11) DEFAULT NULL,
-  `Problema` varchar(150) DEFAULT NULL
+  `ID_problema_primario` int(11) NOT NULL,
+  `valor` int(11) DEFAULT NULL,
+  `nome` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -52,21 +66,20 @@ CREATE TABLE `problema_primario` (
 --
 
 CREATE TABLE `problema_secundario` (
-  `ID` int(11) NOT NULL,
-  `Valor` int(11) DEFAULT NULL,
-  `Problema` varchar(150) DEFAULT NULL
+  `ID_problema_secundario` int(11) NOT NULL,
+  `valor` int(11) DEFAULT NULL,
+  `nome` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `solucoes`
+-- Estrutura da tabela `solucao`
 --
 
-CREATE TABLE `solucoes` (
-  `ID` int(11) NOT NULL,
-  `Valor` int(11) DEFAULT NULL,
-  `Resolucao` varchar(300) DEFAULT NULL
+CREATE TABLE `solucao` (
+  `ID_solucao` int(11) NOT NULL,
+  `nome` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -74,81 +87,85 @@ CREATE TABLE `solucoes` (
 --
 
 --
--- Índices para tabela `equipamentos`
+-- Índices para tabela `caso`
 --
-ALTER TABLE `equipamentos`
-  ADD PRIMARY KEY (`ID`);
+ALTER TABLE `caso`
+  ADD PRIMARY KEY (`ID_caso`),
+  ADD KEY `ID_equipamento` (`ID_equipamento`),
+  ADD KEY `ID_problema_primario` (`ID_problema_primario`),
+  ADD KEY `ID_problema_secundario` (`ID_problema_secundario`),
+  ADD KEY `ID_solucao` (`ID_solucao`);
+
+--
+-- Índices para tabela `equipamento`
+--
+ALTER TABLE `equipamento`
+  ADD PRIMARY KEY (`ID_equipamento`);
 
 --
 -- Índices para tabela `problema_primario`
 --
 ALTER TABLE `problema_primario`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `Valor` (`Valor`);
+  ADD PRIMARY KEY (`ID_problema_primario`);
 
 --
 -- Índices para tabela `problema_secundario`
 --
 ALTER TABLE `problema_secundario`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `Valor` (`Valor`);
+  ADD PRIMARY KEY (`ID_problema_secundario`);
 
 --
--- Índices para tabela `solucoes`
+-- Índices para tabela `solucao`
 --
-ALTER TABLE `solucoes`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `Valor` (`Valor`);
+ALTER TABLE `solucao`
+  ADD PRIMARY KEY (`ID_solucao`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT de tabela `equipamentos`
+-- AUTO_INCREMENT de tabela `caso`
 --
-ALTER TABLE `equipamentos`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `caso`
+  MODIFY `ID_caso` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `equipamento`
+--
+ALTER TABLE `equipamento`
+  MODIFY `ID_equipamento` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `problema_primario`
 --
 ALTER TABLE `problema_primario`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_problema_primario` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `problema_secundario`
 --
 ALTER TABLE `problema_secundario`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_problema_secundario` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `solucoes`
+-- AUTO_INCREMENT de tabela `solucao`
 --
-ALTER TABLE `solucoes`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `solucao`
+  MODIFY `ID_solucao` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restrições para despejos de tabelas
 --
 
 --
--- Limitadores para a tabela `problema_primario`
+-- Limitadores para a tabela `caso`
 --
-ALTER TABLE `problema_primario`
-  ADD CONSTRAINT `problema_primario_ibfk_1` FOREIGN KEY (`Valor`) REFERENCES `equipamentos` (`ID`);
-
---
--- Limitadores para a tabela `problema_secundario`
---
-ALTER TABLE `problema_secundario`
-  ADD CONSTRAINT `problema_secundario_ibfk_1` FOREIGN KEY (`Valor`) REFERENCES `equipamentos` (`ID`);
-
---
--- Limitadores para a tabela `solucoes`
---
-ALTER TABLE `solucoes`
-  ADD CONSTRAINT `solucoes_ibfk_1` FOREIGN KEY (`Valor`) REFERENCES `equipamentos` (`ID`);
+ALTER TABLE `caso`
+  ADD CONSTRAINT `caso_ibfk_1` FOREIGN KEY (`ID_equipamento`) REFERENCES `equipamento` (`ID_equipamento`),
+  ADD CONSTRAINT `caso_ibfk_2` FOREIGN KEY (`ID_problema_primario`) REFERENCES `problema_primario` (`ID_problema_primario`),
+  ADD CONSTRAINT `caso_ibfk_3` FOREIGN KEY (`ID_problema_secundario`) REFERENCES `problema_secundario` (`ID_problema_secundario`),
+  ADD CONSTRAINT `caso_ibfk_4` FOREIGN KEY (`ID_solucao`) REFERENCES `solucao` (`ID_solucao`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
