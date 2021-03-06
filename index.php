@@ -53,7 +53,7 @@
             
 
             <div class="botao">
-                <button class="calcular"> Me ajude! </button>
+                <button class="solucao"> Me ajude! </button>
             </div>
 
             <div class="resultado"></div>
@@ -70,5 +70,3 @@
 
 </html>
 
-
-<!--  -->
