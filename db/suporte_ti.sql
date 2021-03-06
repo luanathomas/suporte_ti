@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 06-Mar-2021 às 21:25
+-- Tempo de geração: 06-Mar-2021 às 21:53
 -- Versão do servidor: 10.4.17-MariaDB
 -- versão do PHP: 8.0.2
 
@@ -46,6 +46,18 @@ CREATE TABLE `equipamento` (
   `valor` int(11) DEFAULT NULL,
   `nome` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `equipamento`
+--
+
+INSERT INTO `equipamento` (`ID_equipamento`, `valor`, `nome`) VALUES
+(1, 1, 'notebook'),
+(2, 2, 'computador'),
+(3, 3, 'impressora'),
+(4, 4, 'monitor'),
+(5, 5, 'teclado'),
+(6, 6, 'mouse');
 
 -- --------------------------------------------------------
 
@@ -134,7 +146,7 @@ ALTER TABLE `caso`
 -- AUTO_INCREMENT de tabela `equipamento`
 --
 ALTER TABLE `equipamento`
-  MODIFY `ID_equipamento` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_equipamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `problema_primario`
