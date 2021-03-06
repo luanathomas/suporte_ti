@@ -47,7 +47,7 @@
             
 
             <div class="botao">
-                <button class="solucao"> Cadastrar </button>
+                <button name="botao" value="cadastrar" class="cadastrar"> Cadastrar </button>
             </div>
 
             <div class="resultado"></div>
