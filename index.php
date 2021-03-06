@@ -12,7 +12,7 @@
 <body>
 <script src="main.js"></script>
     <div id="container">
-        <form class="form">
+        <form class="form" method="post" action='processa.php'>
         
         <div class="titulo">
                 <h1> Olá! Seja bem vindo a nossa Central de Ajuda.  </h1>
