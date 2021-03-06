@@ -1,9 +1,16 @@
 <?php
-$equipamento = $_POST['select1'];
-$problema1 = $_POST['select2'];
-$problema2 = $_POST['select3'];
+
+include_once getcwd()."\src\Caso.php";
+include_once getcwd()."\src\Equipamento.php";
+include_once getcwd()."\src\Problema_Primario.php";
+include_once getcwd()."\src\Problema_Secundario.php";
+include_once getcwd()."\src\Solucao.php";
 
 
+if (isset($_POST['botao']) && $_POST['botao'] == "cadastrar") {
+    $equipamento = $_POST['input_equipamento'];
+	header("location: admin.php");
+} 
 
 
 ?>

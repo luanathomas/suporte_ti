@@ -53,7 +53,7 @@
             
 
             <div class="botao">
-                <button class="solucao"> Me mostre uma solução! </button>
+                <button name="botao" value="solucao" class="solucao"> Me mostre uma solução! </button>
             </div>
 
             <div class="resultado"></div>
