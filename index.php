@@ -26,7 +26,7 @@
             <label for="select1">Selecione o equipamento: </label>
             </div>
             <div class="select1">       
-                <select id="select1" aria-placeholder="selecione" required onchange="buscaSelect2(this.value)">
+                <select id="select1" aria-placeholder="selecione" required onchange="buscaSelect1(this.value)">
                     <option value=''>Selecione</option>
                     <option value=1>Notebook</option>
                     <option value=2>Computador</option>
@@ -38,7 +38,7 @@
             <label for="select2">Qual é o problema? </label>
             </div>
             <div class="select2" >
-                <select id="select2" required onchange="buscaSelect3(this.value)">
+                <select id="select2" required onchange="buscaSelect2(select1.value, this.value)">
                 </select>
             </div>
             
