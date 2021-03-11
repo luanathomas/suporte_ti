@@ -33,4 +33,20 @@ class Problema_Secundario{
         }
     }
 
+    public static function buscar($input){
+        $conexao = new MySQL();
+        $sql = "SELECT ID_problema_secundario, nome FROM problema_secundario WHERE problema_secundario.nome = '" .$input."'";
+		$resultados = $conexao->consulta($sql);
+		if(!empty($resultados)){
+            $problemas_secundarios = 0;
+            foreach($resultados as $resultado){
+                $problema_sencundario = new Problema_Secundario($resultado['ID_problema_secundario'], $resultado['nome']);
+                $problemas_secundarios = $problema_sencundario->ID_problema_secundario;
+            }
+            return $problemas_secundarios;
+        }else{
+            return false;
+        }
+    }
+
 }

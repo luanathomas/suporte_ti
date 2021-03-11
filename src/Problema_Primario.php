@@ -32,4 +32,20 @@ class Problema_Primario{
             return false;
         }
     }
+
+    public static function buscar($input){
+        $conexao = new MySQL();
+        $sql = "SELECT ID_problema_primario, nome FROM problema_primario WHERE problema_primario.nome = '" .$input."'";
+		$resultados = $conexao->consulta($sql);
+		if(!empty($resultados)){
+            $problemas_primarios = 0;
+            foreach($resultados as $resultado){
+                $problema_primario = new Problema_Primario($resultado['ID_problema_primario'], $resultado['nome']);
+                $problemas_primarios = $problema_primario->ID_problema_primario;
+            }
+            return $problemas_primarios;
+        }else{
+            return false;
+        }
+    }
 }
