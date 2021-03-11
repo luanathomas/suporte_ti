@@ -11,9 +11,11 @@ if (isset($_POST['botao']) && $_POST['botao'] == "cadastrar") {
     $input_equipamento = $_POST['input_equipamento'];
     $input_problema_primario = $_POST['input_problema_primario'];
     $input_problema_secundario = $_POST['input_problema_secundario'];
+    $input_solucao = $_POST['input_solucao'];
+
     
-    $equipamento = new Equipamento(null, $input_equipamento);
-    $problema_primario = new Problema_Primario(null, $input_problema_primario);
+    
+    
 
 
 

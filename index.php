@@ -50,7 +50,12 @@
                 </select>
             </div>
 
-            
+            <div class="label4">
+                <a href="ajuda.php">Como utlizar a Central de Ajuda?</a>
+            </div>
+            <div class="vazio">
+                <a href="admin.php">Sou administrador</a>
+            </div>
 
             <div class="botao">
                 <button name="botao" value="solucao" class="solucao"> Me mostre uma solução! </button>

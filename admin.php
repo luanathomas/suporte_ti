@@ -29,32 +29,48 @@ include_once getcwd()."\src\Solucao.php";
             </div>
 
             <div class="descricao">
-                <h3> Cadastre o problema através das perguntas abaixo</h3>
+                <h3> Administrador, cadastre uma nova solução!</h3>
             </div>
 
             <div class="label1">
             <label for="input_equipamento">Qual o equipamento defeituoso? </label>
             </div>
-            <div class="input_equipamento">       
-              <input type="text" name="input_equipamento">
-            </div>
+
+            <?php
+            echo '<div class="input_equipamento">'; 
+                $equipamentos = Equipamento::listar();
+                
+                echo '<select name="input_equipamento" required>';
+                        echo '<option value="" disabled selected>Selecione</option>';
+                        for ($i=0; $i < count($equipamentos) ; $i++) { 
+                            echo '<option value='.$equipamentos[$i]->ID_equipamento.'>'.$equipamentos[$i]->nome.'</option>';
+                        }
+                echo '</select>';   
+            echo '</div>';
+            ?>
 
             <div class="label2">
             <label for="input_problema_primario">Qual é o problema? </label>
             </div>
             <div class="input_problema_primario" >
-                <input type="text" name="input_problema_primario">
+                <input type="text" name="input_problema_primario" required>
             </div>
             
             <div class="label3">
             <label for="input_problema_secundario">Descreva o problema detalhadamente</label>
             </div>
             <div class="input_problema_secundario">
-                <input type="text" name="input_problema_secundario">
+                <input type="text" name="input_problema_secundario" required>
             </div>
-            <br>
 
-            
+            <div class="label4">
+            <label for="input_solucao">Descreva a solução para o problema</label>
+            </div>
+            <div class="input_solucao">
+                <input type="text" name="input_solucao" required>
+            </div>
+
+            <br>   
 
             <div class="botao">
                 <button name="botao" value="cadastrar" class="cadastrar"> Cadastrar </button>

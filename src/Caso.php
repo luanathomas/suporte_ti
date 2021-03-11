@@ -24,7 +24,7 @@ class Caso{
         $conexao->executa($sql);
     }
 
-    public function listar(){
+    public static function listar(){
         $conexao = new MySQL();
         $sql = "SELECT ID_caso, ID_equipamento, ID_problema_primario, ID_problema_secundario, ID_solucao FROM caso";
 		$resultados = $conexao->consulta($sql);
@@ -39,3 +39,5 @@ class Caso{
             return false;
         }
     }
+
+}

@@ -17,7 +17,7 @@ class Solucao{
         $conexao->executa($sql);
     }
 
-    public function listar(){
+    public static function listar(){
         $conexao = new MySQL();
         $sql = "SELECT ID_solucao, nome FROM equipamento";
 		$resultados = $conexao->consulta($sql);
@@ -32,3 +32,4 @@ class Solucao{
             return false;
         }
     }
+}

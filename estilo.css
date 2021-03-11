@@ -16,7 +16,7 @@ body {
 
 #container {
     height: 100vh;
-    width: 100vw;
+    width: 98vw;
     display: grid;
     grid-template-columns: 1fr 7fr 1fr;
     grid-template-rows: 1fr 5fr 1fr;
@@ -32,12 +32,12 @@ form {
     margin: 0 auto;
     padding: 5px;
     background-color: white;
-    height: 550px;
-    width: 6fr;
-    border-radius: 18px;
+    height: 700px;
+    width: 60vw;
+    border-radius: 0 px;
     border-color: white;
-    grid-template-rows: 1fr 1fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 1fr 2fr 1fr 1fr;
-    grid-template-areas: "titulo" "descricao" "label1" "select1" "label2" "select2" "label3" "select3" "." "button" "resultado" "tema" "footer";
+    grid-template-rows: 1fr 1fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 1fr 2fr 1fr 2fr 1fr 1fr;
+    grid-template-areas: "titulo" "descricao" "label1" "select1" "label2" "select2" "label3" "select3" "label4" "solucao" "." "button" "resultado" "tema" "footer";
 }
 
 .titulo {
@@ -77,7 +77,16 @@ form {
     justify-content: space-around;
 }
 
-.input_equipamento {
+.label4 {
+    grid-area: label4;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.input_equipamento,
+.select1 {
     grid-area: select1;
     text-align: center;
     display: flex;
@@ -85,7 +94,8 @@ form {
     justify-content: space-around;
 }
 
-.input_problema_primario {
+.input_problema_primario,
+.select2 {
     grid-area: select2;
     text-align: center;
     display: flex;
@@ -93,8 +103,18 @@ form {
     justify-content: space-around;
 }
 
-.input_problema_secundario {
+.input_problema_secundario,
+.select3 {
     grid-area: select3;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.input_solucao,
+.vazio {
+    grid-area: solucao;
     text-align: center;
     display: flex;
     flex-direction: row;
@@ -107,7 +127,6 @@ form {
     flex-direction: row;
     justify-content: space-around;
     text-align: center;
-    width: 95%;
 }
 
 .resultado {
@@ -176,7 +195,8 @@ button {
     padding: 4px;
 }
 
-label {
+label,
+a {
     border-color: transparent;
     font-family: 'Josefin Sans', sans-serif;
     font-style: normal;

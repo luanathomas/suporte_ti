@@ -17,7 +17,7 @@ class Problema_Secundario{
         $conexao->executa($sql);
     }
 
-    public function listar(){
+    public static function listar(){
         $conexao = new MySQL();
         $sql = "SELECT ID_problema_secundario, nome FROM problema_secundario";
 		$resultados = $conexao->consulta($sql);
@@ -33,3 +33,4 @@ class Problema_Secundario{
         }
     }
 
+}

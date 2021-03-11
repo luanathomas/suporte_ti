@@ -17,7 +17,7 @@ class Problema_Primario{
         $conexao->executa($sql);
     }
 
-    public function listar(){
+    public static function listar(){
         $conexao = new MySQL();
         $sql = "SELECT ID_problema_primario, nome FROM problema_primario";
 		$resultados = $conexao->consulta($sql);
@@ -32,3 +32,4 @@ class Problema_Primario{
             return false;
         }
     }
+}
