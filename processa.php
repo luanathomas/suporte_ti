@@ -8,7 +8,15 @@ include_once getcwd()."\src\Solucao.php";
 
 
 if (isset($_POST['botao']) && $_POST['botao'] == "cadastrar") {
-    $equipamento = $_POST['input_equipamento'];
+    $input_equipamento = $_POST['input_equipamento'];
+    $input_problema_primario = $_POST['input_problema_primario'];
+    $input_problema_secundario = $_POST['input_problema_secundario'];
+    
+    $equipamento = new Equipamento(null, null, $input_equipamento);
+    $problema_primario = new Problema_Primario()
+
+
+
 	header("location: admin.php");
 } 
 
