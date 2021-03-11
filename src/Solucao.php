@@ -17,3 +17,18 @@ class Solucao{
         $conexao->executa($sql);
     }
 
+    public function listar(){
+        $conexao = new MySQL();
+        $sql = "SELECT ID_solucao, nome FROM equipamento";
+		$resultados = $conexao->consulta($sql);
+		if(!empty($resultados)){
+            $solucoes = array();
+            foreach($resultados as $resultado){
+                $solucao = new Solucao($resultado['ID_solucao'], $resultado['nome']);
+                $solucoes[] = $solucao;
+            }
+            return $solucoes;
+        }else{
+            return false;
+        }
+    }

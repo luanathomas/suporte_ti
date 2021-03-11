@@ -17,3 +17,19 @@ class Equipamento{
         $conexao->executa($sql);
     }
 
+    public function listar(){
+        $conexao = new MySQL();
+        $sql = "SELECT ID_equipamento, nome FROM equipamento";
+		$resultados = $conexao->consulta($sql);
+		if(!empty($resultados)){
+            $equipamentos = array();
+            foreach($resultados as $resultado){
+                $equipamento = new Equipamento($resultado['ID_equipamento'], $resultado['nome']);
+                $equipamentos[] = $equipamento;
+            }
+            return $equipamentos;
+        }else{
+            return false;
+        }
+    }
+

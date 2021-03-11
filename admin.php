@@ -1,3 +1,13 @@
+<?php
+
+include_once getcwd()."\src\Caso.php";
+include_once getcwd()."\src\Equipamento.php";
+include_once getcwd()."\src\Problema_Primario.php";
+include_once getcwd()."\src\Problema_Secundario.php";
+include_once getcwd()."\src\Solucao.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

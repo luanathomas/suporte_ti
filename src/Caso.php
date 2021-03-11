@@ -24,17 +24,17 @@ class Caso{
         $conexao->executa($sql);
     }
 
-    public static function listarPeriodo($dInicio, $dFim){
+    public function listar(){
         $conexao = new MySQL();
-        $sql = "SELECT idAmostra, datas, hora, tAmbiente, tMassa, material, largura, comprimento, pBruto, pMassa FROM amostra_massa WHERE amostra_massa.datas between '".$dInicio."' AND '".$dFim."'";
+        $sql = "SELECT ID_caso, ID_equipamento, ID_problema_primario, ID_problema_secundario, ID_solucao FROM caso";
 		$resultados = $conexao->consulta($sql);
 		if(!empty($resultados)){
-            $amostras = array();
+            $casos = array();
             foreach($resultados as $resultado){
-                $amostra = new AmostraMassa($resultado['idAmostra'], $resultado['datas'], $resultado['hora'], $resultado['tAmbiente'], $resultado['tMassa'], $resultado['material'], $resultado['largura'], $resultado['comprimento'], $resultado['pBruto'], $resultado['pMassa']);
-                $amostras[] = $amostra;
+                $caso = new Caso($resultado['ID_caso'], $resultado['ID_equipamento'], $resultado['ID_problema_primario'], $resultado['ID_problema_secundario'], $resultado['ID_solucao']);
+                $casos[] = $caso;
             }
-            return $amostras;
+            return $casos;
         }else{
             return false;
         }

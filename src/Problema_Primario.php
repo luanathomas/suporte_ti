@@ -17,3 +17,18 @@ class Problema_Primario{
         $conexao->executa($sql);
     }
 
+    public function listar(){
+        $conexao = new MySQL();
+        $sql = "SELECT ID_problema_primario, nome FROM problema_primario";
+		$resultados = $conexao->consulta($sql);
+		if(!empty($resultados)){
+            $problemas_primarios = array();
+            foreach($resultados as $resultado){
+                $problema_primario = new Problema_Primario($resultado['ID_problema_primario'], $resultado['nome']);
+                $problemas_primarios[] = $problema_primario;
+            }
+            return $problemas_primarios;
+        }else{
+            return false;
+        }
+    }
