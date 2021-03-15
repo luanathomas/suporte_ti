@@ -29,10 +29,6 @@ if (isset($_POST['botao']) && $_POST['botao'] == "cadastrar") {
 
     echo "<script>alert('Solução cadastrada com sucesso!');";
 	echo "javascript:window.location='index.php';</script>";
-    
-    
 
 } 
-
-
 ?>

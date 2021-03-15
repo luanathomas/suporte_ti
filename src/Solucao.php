@@ -48,4 +48,20 @@ class Solucao{
             return false;
         }
     }
+
+    public static function buscarID($input){
+        $conexao = new MySQL();
+        $sql = "SELECT ID_solucao, nome FROM solucao WHERE solucao.ID_solucao = '" .$input."'";
+		$resultados = $conexao->consulta($sql);
+		if(!empty($resultados)){
+            $solucoes = 0;
+            foreach($resultados as $resultado){
+                $solucao = new Solucao($resultado['ID_solucao'], $resultado['nome']);
+                $solucoes = $solucao->nome;
+            }
+            return $solucoes;
+        }else{
+            return false;
+        }
+    }
 }

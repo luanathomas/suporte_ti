@@ -20,10 +20,15 @@ class MySQL{
 		$result = $this->connection->query($sql);
 		$item = array();
 		$data = array();
-		while($item = mysqli_fetch_array($result)){
-			$data[] = $item;
+		if (empty($result)) {
+			return $data;
+		}else {
+			while($item = mysqli_fetch_array($result)){
+				$data[] = $item;
+			}
+			return $data;
+			}
 		}
-		return $data;
-		}
+		
 	}
 ?>
