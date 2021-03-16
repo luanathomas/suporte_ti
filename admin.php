@@ -125,6 +125,8 @@ include_once getcwd()."\src\Solucao.php";
                 </select>   
             </div>
                 
+                
+
             <div class="input_solucao" id="input_solucao">
                 <input name="input_solucao" type="text"/>
                 <button type="button" class="button" id="cancel4">Cancelar</button>

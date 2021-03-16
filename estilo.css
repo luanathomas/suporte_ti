@@ -23,21 +23,21 @@ body {
     grid-template-areas: ". . ." ". formulário ." ". . .";
 }
 
-form {
+.form {
     grid-area: formulário;
     display: grid;
     justify-content: space-around;
     font-size: 1.1em;
-    opacity: 0.9;
+    opacity: 0.8;
     margin: 0 auto;
     padding: 5px;
     background-color: white;
-    height: 700px;
+    height: 150vh;
     width: 60vw;
     border-radius: 0 px;
     border-color: white;
-    grid-template-rows: 1fr 1fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 1fr 2fr 1fr 2fr 1fr 1fr;
-    grid-template-areas: "titulo" "descricao" "label1" "select1" "label2" "select2" "label3" "select3" "label4" "input_solucao" "." "button" "solucao" "resposta" "footer";
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "titulo" "descricao" "label1" "select1" "label2" "select2" "label3" "select3" "label4" "input_solucao" "." "button" "footer";
 }
 
 .titulo {
@@ -133,6 +133,15 @@ form {
     text-align: center;
 }
 
+.item {
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    margin: 0 auto;
+    padding: 5px;
+    height: 50px;
+    width: 50vw;
+}
+
 .solucao {
     grid-area: solucao;
     justify-content: space-around;
@@ -140,7 +149,6 @@ form {
     font-family: 'Josefin Sans', sans-serif;
     font-style: bold;
     font-weight: normal;
-    font-size: 17pt;
 }
 
 .resposta {
@@ -167,7 +175,7 @@ input {
     width: 92.5%;
     margin: 0 auto;
     border-radius: 3px;
-    height: 25px;
+    height: 20px;
     border-style: solid;
     border-color: black;
     background-color: #fafafa;
@@ -197,9 +205,9 @@ button {
     font-family: 'Josefin Sans', sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 12pt;
+    font-size: 13pt;
     width: 45%;
-    height: 50px;
+    height: 42px;
     margin: 0 auto;
     border-radius: 3px;
     border-style: solid;
