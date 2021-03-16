@@ -19,7 +19,7 @@ class Solucao{
 
     public static function listar(){
         $conexao = new MySQL();
-        $sql = "SELECT ID_solucao, nome FROM equipamento";
+        $sql = "SELECT ID_solucao, nome FROM solucao";
 		$resultados = $conexao->consulta($sql);
 		if(!empty($resultados)){
             $solucoes = array();

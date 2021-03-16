@@ -33,5 +33,21 @@ class Equipamento{
         }
     }
 
+    public static function buscar($input){
+        $conexao = new MySQL();
+        $sql = "SELECT ID_equipamento, nome FROM equipamento WHERE equipamento.nome = '" .$input."'";
+		$resultados = $conexao->consulta($sql);
+		if(!empty($resultados)){
+            $equipamentos = 0;
+            foreach($resultados as $resultado){
+                $equipamento = new Equipamento($resultado['ID_equipamento'], $resultado['nome']);
+                $equipamentos = $equipamento->ID_equipamento;
+            }
+            return $equipamentos;
+        }else{
+            return false;
+        }
+    }
+
     
 }
