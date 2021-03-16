@@ -37,23 +37,15 @@ include_once getcwd()."\src\Solucao.php";
             </div>
 
             <?php
-            echo '<div class="equipamento">'
-            echo '<div class="select_equipamento" id="select_equipamento">'; 
+            echo '<div class="input_equipamento">'; 
                 $equipamentos = Equipamento::listar();
-                echo '<select name="select_equipamento" required>';
+                
+                echo '<select name="input_equipamento" required>';
                         echo '<option value="" disabled selected>Selecione</option>';
                         for ($i=0; $i < count($equipamentos) ; $i++) { 
                             echo '<option value='.$equipamentos[$i]->ID_equipamento.'>'.$equipamentos[$i]->nome.'</option>';
                         }
-                        echo '<option value="outro">Cadastrar outro equipamento...</option>';
                 echo '</select>';   
-            echo '</div>';
-
-            echo '<div class="input_equipamento" id="input_equipamento">';
-            echo '<input type="text" name="input_equipamento" required>';
-            echo '<button type="botao" class="cancel" id="cancel">Cancelar</button>';
-            echo '</div>';
-
             echo '</div>';
             ?>
 

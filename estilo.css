@@ -85,7 +85,7 @@ form {
     justify-content: space-around;
 }
 
-.input_equipamento,
+.equipamento,
 .select1 {
     grid-area: select1;
     text-align: center;
@@ -94,7 +94,7 @@ form {
     justify-content: space-around;
 }
 
-.input_problema_primario,
+.problema_primario,
 .select2 {
     grid-area: select2;
     text-align: center;
@@ -103,7 +103,7 @@ form {
     justify-content: space-around;
 }
 
-.input_problema_secundario,
+.problema_secundario,
 .select3 {
     grid-area: select3;
     text-align: center;
