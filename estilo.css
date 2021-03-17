@@ -32,7 +32,7 @@ body {
     margin: 0 auto;
     padding: 5px;
     background-color: white;
-    height: 150vh;
+    height: 160vh;
     width: 60vw;
     border-radius: 0 px;
     border-color: white;
@@ -140,6 +140,10 @@ body {
     padding: 5px;
     height: 50px;
     width: 50vw;
+}
+
+.explicacao {
+    padding: 30px;
 }
 
 .solucao {
