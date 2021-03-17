@@ -63,7 +63,6 @@ include_once getcwd() . "\src\Solucao.php";
                             echo '</div>';
                         } else {
                             echo '<br>';
-                            echo '<h3> Qual destas soluções te ajudou? </h3>';
                             for ($i = 0; $i < count($casos1); $i++) {
                                 $lista_solucao = Solucao::buscarID($casos1[$i]->ID_solucao);
                                 echo '<div class="item">';
@@ -84,7 +83,6 @@ include_once getcwd() . "\src\Solucao.php";
                         }
                     } else {
                         echo '<br>';
-                        echo '<h3> Qual destas soluções te ajudou? </h3>';
                         for ($i = 0; $i < count($casos2); $i++) {
                             $lista_solucao = Solucao::buscarID($casos2[$i]->ID_solucao);
                             echo '<div class="item">';

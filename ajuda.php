@@ -48,7 +48,7 @@ include_once getcwd() . "\src\Solucao.php";
                         informática. Para utilizá-lo, primeiramente selecione qual o equipamento que não
                         está funcionando corretamente. Após, selecione o problema principal,
                         utilizando uma frase. Na última opção, selecione o problema com o máximo
-                        de detalhes que puder e que melhor se enquadra ao seu problema, para que as
+                        de detalhes que puder e que melhor se enquadra à sua situação, para que as
                         opções de resposta sejam as mais próximas possíveis. Quando finalizar, clique no
                         botão "Me mostre uma solução" e o sistema apresentará possíveis soluções para seu
                         problema. Se uma das soluções apresentadas funcionar, selecione-a e clique em
